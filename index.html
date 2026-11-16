@@ -28,19 +28,29 @@
     #gate .by{display:flex;align-items:center;gap:10px;margin:8px 0 0;padding-top:18px;border-top:1px solid rgba(244,239,255,.08);font-size:12px;color:#8f88a3}
     #gate .hai{display:inline-block;width:96px;height:32px;background:linear-gradient(90deg,#a88bff 18%,#c35eae);-webkit-mask:url(hai-wordmark-mask.png) left center/contain no-repeat;mask:url(hai-wordmark-mask.png) left center/contain no-repeat}
     #gate .err{min-height:20px;margin:12px 0 0;font-size:13px;color:#ff8a8b}
+    #gate .hint{font-size:12px;line-height:1.5;color:#b9b2cc;margin:8px 0 0}
+    #gate .password-field{position:relative}
+    #gate .password-field input{padding-right:76px}
+    #gate #gate-show{position:absolute;right:8px;top:5px;width:60px;height:36px;margin:0;background:transparent;color:#d7c8ff;font-size:12px;border-radius:999px}
+    #gate #gate-show:focus-visible{outline:2px solid #a88bff;outline-offset:1px}
+    #gate .gate-submit{white-space:nowrap}
+    #gate{align-items:safe center;overflow-y:auto}
   </style>
 </head>
 <body id="top" class="is-locked">
   <div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-h">
-    <form autocomplete="on">
+    <form autocomplete="on" method="post">
       <div class="brand"><img src="kds-mark.svg" alt="" width="44" height="44" /><b>KDS Law</b></div>
       <p class="ey">KPI dashboard</p>
       <h1 id="gate-h">Sign in to view</h1>
-      <label for="gate-u">Username</label>
-      <input id="gate-u" name="username" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" required />
+      <label for="gate-u">Dashboard username</label>
+      <input id="gate-u" name="username" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" aria-describedby="gate-user-hint" required />
+      <p class="hint" id="gate-user-hint">Use your dashboard username, not your email address or Google login.</p>
       <label for="gate-p">Password</label>
-      <input id="gate-p" name="password" type="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" required />
-      <button type="submit">View dashboard</button>
+      <div class="password-field"><input id="gate-p" name="password" type="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" aria-describedby="gate-password-hint" required /><button id="gate-show" type="button" aria-label="Show password" aria-pressed="false" aria-controls="gate-p">Show</button></div>
+      <p class="hint" id="gate-password-hint">Use the password saved for this dashboard. Your former portal login is separate.</p>
+      <button class="gate-submit" type="submit" disabled>View dashboard</button>
+      <noscript><p class="hint">Enable JavaScript to sign in to this dashboard.</p></noscript>
       <p class="err" role="alert" aria-live="polite"></p>
       <p class="by">Prepared by <span class="hai" role="img" aria-label="Hai Creative"></span></p>
     </form>
@@ -229,6 +239,6 @@
     </div>
   </footer>
   <script src="data.enc.js?v=mwj1prmw"></script>
-  <script src="gate.js?v=mwj1prmw"></script>
+  <script src="gate.js?v=login-recovery-20261116"></script>
 </body>
 </html>
