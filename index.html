@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#08080b" />
+  <title>KDS Law KPI dashboard · Hai Creative</title>
+  <meta name="description" content="KDS Law marketing performance dashboard, Nov 2025 to Oct 2026, prepared by Hai Creative." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2308080b'/%3E%3Cpath d='M8 8h10' stroke='%23fb0001' stroke-width='3'/%3E%3Cpath d='M8 8v16' stroke='%23fb0001' stroke-width='3'/%3E%3Ccircle cx='19' cy='18' r='6' fill='none' stroke='%23a88bff' stroke-width='3'/%3E%3C/svg%3E" />
+  <link rel="preload" href="dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body.is-locked > *:not(#gate):not(svg){visibility:hidden}
+    #gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;background:radial-gradient(120% 80% at 70% 0%,#1a1430 0%,#08080b 60%);font-family:"DM Sans",system-ui,sans-serif;color:#f4efff}
+    body:not(.is-locked) #gate{display:none}
+    #gate form{width:min(380px,100%);padding:32px 28px;border-radius:24px;border:1px solid rgba(168,139,255,.28);background:rgba(20,17,30,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+    #gate .ey{font:500 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:#a88bff;margin:0 0 14px}
+    #gate h1{font-size:28px;line-height:1.1;font-weight:500;letter-spacing:-.02em;margin:0 0 22px}
+    #gate label{display:block;font-size:13px;color:#b9b2cc;margin:14px 0 6px}
+    #gate input{width:100%;box-sizing:border-box;height:46px;padding:0 16px;border-radius:999px;border:1px solid rgba(244,239,255,.16);background:#0f0d16;color:#f4efff;font:inherit;font-size:16px;outline:none}
+    #gate input:focus{border-color:#a88bff;box-shadow:0 0 0 3px rgba(168,139,255,.22)}
+    #gate button{margin-top:22px;width:100%;height:48px;border:0;border-radius:999px;background:#fb0001;color:#fff;font:inherit;font-weight:600;font-size:15px;cursor:pointer}
+    #gate button[disabled]{opacity:.6;cursor:progress}
+    #gate .brand{display:flex;align-items:center;gap:12px;margin:0 0 22px}
+    #gate .brand img{display:block;width:44px;height:44px}
+    #gate .brand b{font-size:22px;font-weight:550;letter-spacing:-.03em}
+    #gate .by{display:flex;align-items:center;gap:10px;margin:8px 0 0;padding-top:18px;border-top:1px solid rgba(244,239,255,.08);font-size:12px;color:#8f88a3}
+    #gate .hai{display:inline-block;width:96px;height:32px;background:linear-gradient(90deg,#a88bff 18%,#c35eae);-webkit-mask:url(hai-wordmark-mask.png) left center/contain no-repeat;mask:url(hai-wordmark-mask.png) left center/contain no-repeat}
+    #gate .err{min-height:20px;margin:12px 0 0;font-size:13px;color:#ff8a8b}
+  </style>
+</head>
+<body id="top" class="is-locked">
+  <div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-h">
+    <form autocomplete="on">
+      <div class="brand"><img src="kds-mark.svg" alt="" width="44" height="44" /><b>KDS Law</b></div>
+      <p class="ey">KPI dashboard</p>
+      <h1 id="gate-h">Sign in to view</h1>
+      <label for="gate-u">Username</label>
+      <input id="gate-u" name="username" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" required />
+      <label for="gate-p">Password</label>
+      <input id="gate-p" name="password" type="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" required />
+      <button type="submit">View dashboard</button>
+      <p class="err" role="alert" aria-live="polite"></p>
+      <p class="by">Prepared by <span class="hai" role="img" aria-label="Hai Creative"></span></p>
+    </form>
+  </div>
+  <a class="skip" href="#main" data-scroll>Skip to content</a>
+
+  <!-- shared SVG defs: outline gradient + hatch patterns -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="g-outline" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#a88bff" /><stop offset=".6" stop-color="#c35eae" /><stop offset="1" stop-color="#fb0001" />
+      </linearGradient>
+      <linearGradient id="gr-brand" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a88bff" /><stop offset=".55" stop-color="#c35eae" /><stop offset="1" stop-color="#fb0001" /></linearGradient>
+      <linearGradient id="gr-meta" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cbbcff" /><stop offset=".6" stop-color="#a88bff" /><stop offset="1" stop-color="#8f5fd8" /></linearGradient>
+      <linearGradient id="gr-google" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff6f61" /><stop offset=".55" stop-color="#fb0001" /><stop offset="1" stop-color="#b3125e" /></linearGradient>
+      <!-- chart paints: the HAI ramp, violet #a88bff -> magenta #c35eae -> red #fb0001, bottom to top -->
+      <linearGradient id="gb-brand" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#a88bff" /><stop offset=".55" stop-color="#c35eae" /><stop offset="1" stop-color="#fb0001" /></linearGradient>
+      <linearGradient id="gb-meta" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#a88bff" /><stop offset="1" stop-color="#c06fc4" /></linearGradient>
+      <linearGradient id="gb-google" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#c8478f" /><stop offset="1" stop-color="#fb0001" /></linearGradient>
+      <pattern id="p-na" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="7" height="7" fill="#141119" /><rect width="1.6" height="7" fill="#4a3c5e" />
+      </pattern>
+      <pattern id="p-unver" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="6" height="6" fill="#ff8a8b" fill-opacity=".22" /><rect width="2.2" height="6" fill="#ff8a8b" />
+      </pattern>
+      <pattern id="p-rule" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+        <rect width="6" height="6" fill="#fb0001" fill-opacity=".25" /><rect width="2" height="6" fill="#fb0001" />
+      </pattern>
+      <pattern id="p-stamp" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="6" height="6" fill="#a88bff" fill-opacity=".12" /><rect width="1.6" height="6" fill="#a88bff" fill-opacity=".8" />
+      </pattern>
+    </defs>
+  </svg>
+
+  <header class="bar">
+    <div class="bar__in">
+      <a class="lockup" href="#top" data-scroll aria-label="Hai Creative and KDS Law, KPI dashboard, back to top">
+        <span class="wordmark" role="img" aria-label="Hai Creative"></span>
+        <span class="lockup__rule" aria-hidden="true"></span>
+        <span class="lockup__client"><img src="kds-mark.svg" alt="" width="30" height="30" /><b>KDS Law</b><small>KPI dashboard</small></span>
+      </a>
+      <nav aria-label="Sections">
+        <a href="#kpis" data-scroll>Scorecard</a>
+        <a href="#paid" data-scroll>Paid</a>
+        <a href="#organic" data-scroll>Organic</a>
+        <a href="#local" data-scroll>Local</a>
+        <a href="#website" data-scroll>Website</a>
+        <a href="#content" data-scroll>Content</a>
+        <a href="#ai" data-scroll>AI search</a>
+      </nav>
+      <a class="pill pill--red" href="#notes" data-scroll>Data notes</a>
+    </div>
+    <div class="filter" id="filter" role="region" aria-label="Period filter">
+      <div class="filter__in">
+        <span class="label filter__lab" id="periodLab">Period</span>
+        <div class="seg" role="group" aria-labelledby="periodLab" id="periodSeg"></div>
+        <button class="seg__more" type="button" id="rangeToggle" aria-expanded="false" aria-controls="rangeBox">Range</button>
+        <div class="range" id="rangeBox">
+          <label><span class="label">From</span><select id="rangeFrom" aria-label="From month"></select></label>
+          <label><span class="label">To</span><select id="rangeTo" aria-label="To month"></select></label>
+        </div>
+        <p class="filter__now" aria-live="polite"><span id="periodNow">Nov 2025 &ndash; Oct 2026</span></p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="hero__card glass hai-glass" id="heroCard" data-hai-rim="paused">
+          <div class="hero__copy">
+            <p class="label hero__eyebrow">KDS Law &middot; Performance</p>
+            <h1 id="hero-title"><span>KDS Law, in numbers.</span> <span class="grad" id="heroPeriod">Nov 2025 &ndash; Oct 2026.</span></h1>
+            <p class="hero__meta"><span>Data through Oct 31, 2026</span><span>Prepared by Hai Creative</span><span id="heroPartial">12 full months</span></p>
+          </div>
+          <figure class="hero__flow" id="heroFlow">
+            <div class="flow" id="flowHost" role="img" aria-label="Paid, organic search and local profile figures for the selected period"></div>
+            <figcaption class="flow__cap"><span class="label">Spend &rarr; clicks &rarr; outcomes</span><span class="flow__note">Three separate lanes from three platforms; never added together. Follows the period filter.</span></figcaption>
+          </figure>
+          <button class="motion" type="button" id="heroMotion" aria-pressed="false" hidden>
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3.5" y="3" width="3" height="10" rx="1" /><rect x="9.5" y="3" width="3" height="10" rx="1" /></svg>
+            <span>Pause motion</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--strip" id="sources" aria-labelledby="sources-title">
+      <div class="wrap">
+        <div class="strip">
+          <h2 id="sources-title" class="strip__h">Before you read</h2>
+          <ul class="strip__marks" id="sourceMarks" aria-label="Platforms in this dashboard"></ul>
+          <p class="strip__key"><i class="sw sw--na" aria-hidden="true"></i>Hatched means not read or unavailable, never zero.</p>
+          <details class="acc strip__acc" data-acc="sources"><summary><span>Where each number comes from</span><i class="acc__ic" aria-hidden="true"></i></summary><div class="acc__in"><ul class="sources" id="sourceList"></ul></div></details>
+          <details class="acc strip__acc" data-acc="rules"><summary><span>Counting rules</span><i class="acc__ic" aria-hidden="true"></i></summary><div class="acc__in"><ol class="rules-list" id="ruleList"></ol></div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kpis" aria-labelledby="kpis-title">
+      <div class="wrap">
+        <div class="head">
+          <div><p class="label">Scorecard</p><h2 id="kpis-title">Paid, search, local, <span class="accent">content.</span></h2></div>
+          <p>Every tile follows the period filter. Each figure is the platform&rsquo;s own count; tiles from different platforms are never added together.</p>
+        </div>
+        <div class="kpis" id="kpiGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="paid" aria-labelledby="paid-title">
+      <div class="wrap">
+        <div class="head">
+          <div><p class="label">Paid search &middot; Google Ads</p><h2 id="paid-title">Two phases, <span class="accent">side by side.</span></h2></div>
+          <p>Cost covers all campaign types, including Display. Conversions are Google Ads&rsquo; own count, not leads.</p>
+        </div>
+        <div class="charts" id="paidCharts"></div>
+      </div>
+    </section>
+
+    <section class="section" id="organic" aria-labelledby="organic-title">
+      <div class="wrap">
+        <div class="head">
+          <div><p class="label">Organic search &middot; Search Console</p><h2 id="organic-title">Search clicks up 131% <span class="accent">since August (158 to 365).</span></h2></div>
+          <p>A recovery from the June&ndash;August low, not year-on-year growth: October is still below November 2025.</p>
+        </div>
+        <div class="charts" id="organicCharts"></div>
+      </div>
+    </section>
+
+    <section class="section" id="local" aria-labelledby="local-title">
+      <div class="wrap">
+        <div class="head">
+          <div><p class="label">Local &middot; Business Profile</p><h2 id="local-title">Profile views <span class="accent">and actions.</span></h2></div>
+          <p>Business Profile figures exist for June to October 2026 only. Earlier months are hatched as unavailable.</p>
+        </div>
+        <div class="charts" id="localCharts"></div>
+      </div>
+    </section>
+
+    <section class="section" id="website" aria-labelledby="website-title">
+      <div class="wrap">
+        <div class="head">
+          <div><p class="label">Website &middot; GA4</p><h2 id="website-title">Site traffic, <span class="accent">read with care.</span></h2></div>
+          <p>January 2026 looks like a tracking gap, and key events were only tracked from May 2026.</p>
+        </div>
+        <div class="charts" id="webCharts"></div>
+      </div>
+    </section>
+
+    <section class="section" id="content" aria-labelledby="content-title">
+      <div class="wrap">
+        <div class="head">
+          <div><p class="label">Content</p><h2 id="content-title">Posts published <span class="accent">on kdslawfirm.com.</span></h2></div>
+          <p>Counted from the site&rsquo;s post sitemap by permalink month: practice guides and local accident news.</p>
+        </div>
+        <div class="charts" id="contentCharts"></div>
+      </div>
+    </section>
+
+    <section class="section" id="ai" aria-labelledby="ai-title">
+      <div class="wrap">
+        <div class="head">
+          <div><p class="label">AI search visibility</p><h2 id="ai-title">Seen in <span class="accent">AI answers.</span></h2></div>
+          <p>Owner-entered figures, each with its source, window and read date. Blank tiles are awaiting entry, not zero.</p>
+        </div>
+        <div class="charts" id="aiCharts"></div>
+      </div>
+    </section>
+
+    <section class="section" id="notes" aria-labelledby="notes-title">
+      <div class="wrap">
+        <div class="head">
+          <div><p class="label">Data notes</p><h2 id="notes-title">How to read <span class="accent">the figures.</span></h2></div>
+          <p>Definitions and caveats from the Nov 4&ndash;5, 2026 platform reads. Aggregates only; no personal data is stored in this page.</p>
+        </div>
+        <div class="notes" id="notesGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <span>Prepared by Hai Creative for KDS Law &middot; Nov 12, 2026</span>
+      <span>Data: Google Ads, Google Search Console, Google Analytics 4, Google Business Profile, site sitemap. Nov 2025 &ndash; Oct 2026.</span>
+      <span class="foot__note">Brand marks from Simple Icons (CC0) are used to identify each data source. DM Sans under the SIL Open Font License.</span>
+    </div>
+  </footer>
+  <script src="data.enc.js?v=mwj1prmw"></script>
+  <script src="gate.js?v=mwj1prmw"></script>
+</body>
+</html>
