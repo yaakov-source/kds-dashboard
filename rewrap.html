@@ -1,0 +1,31 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>KDS key update</title>
+<style>body{font:16px system-ui;margin:40px;max-width:640px}input{display:block;width:100%;margin:6px 0 14px;padding:8px}pre{white-space:pre-wrap;word-break:break-all;background:#eee;padding:12px}</style></head>
+<body><h1>KDS key update</h1>
+<form id="f" onsubmit="return false">
+<label>Dashboard username<input id="u" name="username" autocomplete="username"></label>
+<label>Current password<input id="p" name="password" type="password" autocomplete="current-password"></label>
+<label>New password<input id="n" name="new-password" type="text" autocomplete="off"></label>
+<button id="go" type="button">Generate</button></form>
+<pre id="out"></pre>
+<script src="data.enc.js"></script>
+<script>
+(function(){
+var S=crypto.subtle,E=window.KDS_ENC,out=document.getElementById('out');
+function ub(s){var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u}
+function bu(u){var s='';for(var i=0;i<u.length;i++)s+=String.fromCharCode(u[i]);return btoa(s)}
+function kek(u,p,salt,use){return S.importKey('raw',new TextEncoder().encode(u+':'+p),'PBKDF2',false,['deriveKey']).then(function(b){return S.deriveKey({name:'PBKDF2',salt:salt,iterations:E.iter,hash:'SHA-256'},b,{name:'AES-GCM',length:256},false,[use])})}
+document.getElementById('go').onclick=async function(){
+ out.textContent='Working...';
+ try{
+  var u=document.getElementById('u').value.trim().toLowerCase(),p=document.getElementById('p').value.trim().toUpperCase(),n=document.getElementById('n').value.trim().toUpperCase();
+  if(u!=='jacob'||!p||!n)throw new Error('need username jacob, current and new password');
+  var a=E.users[u];
+  var K=new Uint8Array(await S.decrypt({name:'AES-GCM',iv:ub(a.iv)},await kek(u,p,ub(a.salt),'decrypt'),ub(a.wk)));
+  var salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));
+  var wk=new Uint8Array(await S.encrypt({name:'AES-GCM',iv:iv},await kek(u,n,salt,'encrypt'),K));
+  var K2=new Uint8Array(await S.decrypt({name:'AES-GCM',iv:iv},await kek(u,n,salt,'decrypt'),wk));
+  var k=await S.importKey('raw',K2,'AES-GCM',false,['decrypt']);await S.decrypt({name:'AES-GCM',iv:ub(E.iv)},k,ub(E.ct));
+  out.textContent='VERIFIED\nJACOB_ENTRY='+JSON.stringify({salt:bu(salt),iv:bu(iv),wk:bu(wk)});
+ }catch(e){out.textContent='FAILED: '+(e.name||'')+' '+(e.message||'')}
+};})();
+</script></body></html>
