@@ -1604,3 +1604,93 @@ body #nyc-boroughs .kds-nyc__chip[aria-pressed="true"] { background: linear-grad
 .kds-aidemo h2 .kds-h2-2{font-size:.7em;letter-spacing:-.015em}
 .kds-aidemo .kds-live-ai__eyebrow,.kds-aidemo .kds-doc-demo__eyebrow{font-family:var(--mono)}
 @media (forced-colors:active){.kds-aidemo h2{-webkit-text-fill-color:CanvasText;background:none}}
+
+
+#work-library .kds-lib__collection-art.tim-montage-host:has([data-tim-whole-card-fan]){
+  min-height:440px!important;max-height:none!important;height:auto!important;
+  min-width:0;overflow:clip!important;isolation:isolate;
+}
+#work-library .tim-montage--fan[data-tim-whole-card-fan]{
+  position:relative;isolation:isolate;height:100%!important;min-height:440px!important;
+  width:100%;max-width:100%;aspect-ratio:auto!important;overflow:clip!important;
+}
+#work-library .tim-montage--fan[data-tim-whole-card-fan] .tim-montage-card{
+  position:absolute!important;top:var(--fan-top)!important;bottom:auto!important;
+  left:var(--fan-left)!important;right:auto!important;width:58%!important;
+  height:auto!important;min-height:0!important;max-height:none!important;
+  aspect-ratio:auto!important;transform:rotate(var(--fan-angle))!important;
+  transform-origin:50% 0%!important;translate:none!important;
+  border-radius:12px!important;overflow:hidden!important;
+  z-index:var(--fan-layer)!important;background:#fff;
+  transition:translate .22s ease,box-shadow .22s ease!important;
+}
+#work-library .tim-montage--fan[data-tim-whole-card-fan] .tim-montage-card img{
+  display:block!important;position:static!important;inset:auto!important;
+  width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;
+  aspect-ratio:auto!important;object-fit:contain!important;object-position:50% 0%!important;
+  transform:none!important;scale:none!important;translate:none!important;
+}
+#work-library [data-tim-whole-card-fan] [data-fan-role="left"]{
+  --fan-left:0%;--fan-top:126px;--fan-angle:-11deg;--fan-layer:1;
+}
+#work-library [data-tim-whole-card-fan] [data-fan-role="center"]{
+  --fan-left:21%;--fan-top:80px;--fan-angle:-2deg;--fan-layer:2;background:#152338;
+}
+#work-library [data-tim-whole-card-fan] [data-fan-role="right"]{
+  --fan-left:42%;--fan-top:148px;--fan-angle:10deg;--fan-layer:3;
+}
+#work-library .tim-montage--fan[data-tim-whole-card-fan] .tim-montage-card:focus-visible{
+  outline:3px solid var(--purple,#b58cff);outline-offset:3px;z-index:5!important;
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ #work-library .tim-montage--fan[data-tim-whole-card-fan] .tim-montage-card:hover{translate:0 -5px!important;box-shadow:0 20px 44px #0008}
+}
+@media(max-width:700px){
+ #work-library .kds-lib__collection-art.tim-montage-host:has([data-tim-whole-card-fan]),
+ #work-library .tim-montage--fan[data-tim-whole-card-fan]{min-height:340px!important}
+ #work-library [data-tim-whole-card-fan] [data-fan-role="left"]{--fan-top:112px}
+ #work-library [data-tim-whole-card-fan] [data-fan-role="center"]{--fan-top:66px}
+ #work-library [data-tim-whole-card-fan] [data-fan-role="right"]{--fan-top:132px}
+}
+@media(prefers-reduced-motion:reduce){
+ #work-library .tim-montage--fan[data-tim-whole-card-fan] .tim-montage-card{transition:none!important}
+}
+
+
+@media (max-width:1000px){
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree]{padding:18px 14px 22px;gap:22px;overflow:visible;background:transparent;border:0;border-radius:0;box-shadow:none}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__root{width:64px;max-width:64px;justify-self:start;margin:0;padding:0;position:relative;z-index:3}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__mark{width:64px;height:64px;object-fit:contain}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__root:after{content:'';position:absolute;left:31px;top:100%;height:22px;width:1px;background:#b58cff66;pointer-events:none}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__groups{position:relative;margin:0 0 0 32px;padding:0 0 0 22px;gap:24px;border-left:1px solid #b58cff66;min-width:0}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__groups:after{content:'';position:absolute;left:-2px;top:0;bottom:0;width:3px;pointer-events:none;background:linear-gradient(transparent 0 43%,#cfb3ff 48%,#b58cff 51%,transparent 57% 100%);background-size:100% 240%;opacity:.8;animation:timBeyondRailSignal 6s linear infinite paused}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree].is-running .kds-wtree__groups:after{animation-play-state:running}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__branch-group{display:block;margin:0;padding:0;border:1px solid var(--line,#342a43);border-radius:18px;background:linear-gradient(150deg,#1b1524,#100d16);min-width:0;position:relative;box-shadow:none;overflow:visible}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__branch-group:before{content:'';position:absolute;left:-23px;top:33px;width:22px;height:1px;background:#b58cff66;animation:none;opacity:1}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__branch-group:after{content:'';position:absolute;left:-27px;top:29px;width:9px;height:9px;background:var(--paper,#08080b);border:2px solid #b58cff;border-radius:50%;pointer-events:none;z-index:2}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__heading{margin:0;padding:0;font:inherit}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__mobile-label{display:flex;align-items:flex-start;justify-content:flex-start;gap:11px;min-height:0;padding:20px 16px 16px;margin:0;border:0;border-radius:0;background:transparent;text-align:left;color:var(--ink,#f4efff);font:500 16px/1.3 var(--sans,sans-serif);letter-spacing:-.02em}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__mobile-label>.kds-wtree__icon{width:24px;height:24px;flex:0 0 24px;margin-top:1px}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__mobile-copy{min-width:0;display:block}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__mobile-title{display:block;font:inherit}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__mobile-summary{display:block;margin-top:7px;color:var(--body,#c3bbd1);font:400 12.5px/1.5 var(--sans,sans-serif);letter-spacing:0;text-transform:none}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__grp{display:grid;grid-template-columns:minmax(0,1fr);gap:0;margin:0;padding:0 16px 7px;border:0;min-height:0}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__grp:before{content:none}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__lf{display:flex;align-items:flex-start;justify-content:flex-start;gap:10px;min-height:52px;margin:0;padding:13px 0;border:0;border-top:1px solid #b58cff1c;border-radius:0;background:transparent;box-shadow:none;transform:none}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__lf>.kds-wtree__icon{width:19px;height:19px;flex:0 0 19px;margin-top:1px;color:#b58cff}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__lf b{font:500 14px/1.4 var(--sans,sans-serif);letter-spacing:-.01em;margin:0;color:var(--ink,#f4efff)}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__lf .kds-wtree__sentence{display:block;font:400 12px/1.5 var(--sans,sans-serif);letter-spacing:0;text-transform:none;margin-top:4px;color:var(--muted,#a69bb8)}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__lf.is-lit{transform:none;box-shadow:none;background:transparent}
+ .kds-services.has-wtree .kds-wtree__controls{margin-top:18px}
+}
+@keyframes timBeyondRailSignal{from{background-position:0 100%}to{background-position:0 -100%}}
+@media(max-width:360px){
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree]{padding-left:5px;padding-right:5px}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__groups{margin-left:24px;padding-left:16px}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__root{margin-left:-8px}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__branch-group:before{left:-17px;width:16px}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__branch-group:after{left:-21px}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__mobile-label{padding-left:13px;padding-right:13px;gap:9px}
+ .kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__grp{padding-left:13px;padding-right:13px}
+}
+@media(prefers-reduced-motion:reduce){.kds-services.has-wtree .kds-wtree[data-tim-work-tree] .kds-wtree__groups:after{display:none;animation:none}}
