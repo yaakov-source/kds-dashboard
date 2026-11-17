@@ -654,3 +654,9 @@ html, body { max-width: 100%; overflow-x: hidden; }
 /* full KDS logo in the HAI purple gradient */
 .lockup__client--full .kdslogo { aspect-ratio: 646 / 120; background: var(--wordmark-gradient);
   -webkit-mask: url("kds-logo-full-mask.png") center / contain no-repeat; mask: url("kds-logo-full-mask.png") center / contain no-repeat; }
+  -webkit-mask: url("assets/kds-logo-full-mask.png") center / contain no-repeat; mask: url("assets/kds-logo-full-mask.png") center / contain no-repeat; }
+/* explicit sizes so the logo never depends on aspect-ratio inside the grid */
+.lockup__client--full .kdslogo { width: 205px; height: 38px; min-width: 205px; }
+@media (max-width: 900px) { .lockup__client--full .kdslogo { width: 151px; min-width: 151px; height: 28px; } }
+@media (max-width: 420px) { .lockup__client--full .kdslogo { width: 113px; min-width: 113px; height: 21px; } }
+@media (max-width: 345px) { .lockup__client--full .kdslogo { width: 97px; min-width: 97px; height: 18px; } }
