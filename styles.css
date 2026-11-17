@@ -1337,6 +1337,54 @@ body #nyc-boroughs .kds-nyc__body { animation: kds-nyc-in .32s cubic-bezier(.2,.
 .kds-wft.is-pulse .kds-wft__rimp { animation-duration: 6s; }
 @media (prefers-reduced-motion: reduce) { .kds-wft__rim { transition: none; stroke-dashoffset: 0; } }
 
+body.has-kvg { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+.kvg { position: fixed; right: max(14px, env(safe-area-inset-right, 0px)); bottom: calc(14px + env(safe-area-inset-bottom, 0px)); z-index: 250; display: grid; justify-items: end; gap: 10px; pointer-events: none; max-width: calc(100vw - 20px); }
+.kvg > * { pointer-events: auto; }
+.kvg__btn { position: relative; display: grid; place-items: center; width: 52px; height: 52px; padding: 0; border: 0; border-radius: 50%; background: radial-gradient(circle at 50% 40%, #241b33, #0e0b13 70%);
+  box-shadow: 0 10px 30px rgb(0 0 0 / .45), 0 0 calc(4px + var(--lvl, 0) * 26px) rgb(195 94 174 / calc(.18 + var(--lvl, 0) * .5)); color: var(--ink, #f4efff); cursor: pointer; transition: transform .2s var(--ease, ease), box-shadow .12s linear; }
+.kvg__btn:hover { transform: translateY(-2px); }
+.kvg__btn:focus-visible, .kvg__icon:focus-visible, .kvg__ctl button:focus-visible { outline: 3px solid var(--orange, #fb0001); outline-offset: 3px; }
+.kvg__ring { position: absolute; inset: 0; width: 100%; height: 100%; }
+.kvg__arc { transform-origin: 50% 50%; transform: rotate(-90deg); transition: stroke-dasharray .4s var(--ease, ease); }
+.kvg[data-state="loading"] .kvg__arc, .kvg[data-state="connecting"] .kvg__arc { animation: kvg-spin 1.1s linear infinite; stroke-dasharray: 30 70; }
+.kvg[data-state="listening"] .kvg__arc, .kvg[data-state="speaking"] .kvg__arc { stroke-dasharray: 100 0; }
+.kvg[data-muted="true"] .kvg__arc { opacity: .45; }
+@keyframes kvg-spin { to { transform: rotate(270deg); } }
+.kvg__mic, .kvg__mic svg { display: block; width: 22px; height: 22px; }
+.kvg__panel { box-sizing: border-box; width: min(380px, calc(100vw - 28px)); display: grid; gap: 12px; padding: 16px; border: 1px solid rgb(168 139 255 / .3); border-radius: 22px;
+  background: rgb(18 14 26 / .94); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); box-shadow: 0 30px 80px rgb(0 0 0 / .55); }
+.kvg__panel[hidden] { display: none; }
+.kvg__top { display: flex; align-items: start; justify-content: space-between; gap: 10px; min-width: 0; }
+.kvg__id { min-width: 0; }
+.kvg__eb { margin: 0; color: var(--muted, #a69bb8); font: 500 11px/1.4 var(--mono, monospace); letter-spacing: .1em; text-transform: uppercase; }
+.kvg__status { margin: 4px 0 0; font: 500 20px/1.15 var(--sans, sans-serif); letter-spacing: -.01em; background: linear-gradient(90deg, #a88bff 0%, #c35eae 55%, #fb0001 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.kvg__icon { display: grid; place-items: center; width: 40px; height: 40px; flex: none; border: 1px solid var(--line-strong, #4a3c5e); border-radius: 50%; background: transparent; color: var(--body, #c3bbd1); cursor: pointer; }
+.kvg__icon svg { width: 14px; height: 14px; }
+.kvg__efis { position: relative; box-sizing: border-box; width: 100%; height: 104px; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: minmax(0, 1fr); overflow: hidden; gap: 10px; padding: 8px 10px 6px 12px; border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.015) 46%, rgba(255,255,255,.03)), rgba(8, 8, 11, .55); border: 1px solid rgba(255,255,255,.13);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.16), inset 0 -1px 0 rgba(0,0,0,.35), inset 0 0 22px rgba(0,0,0,.25); transition: border-color .3s ease; }
+.kvg__efis::before { content: ""; position: absolute; left: 18px; right: 18px; top: 0; height: 1px; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent); }
+.kvg[data-state="listening"] .kvg__efis, .kvg[data-state="speaking"] .kvg__efis { border-color: rgba(195, 94, 174, .45); }
+.kvg__meter { display: block; width: 100%; height: 88px; min-width: 0; }
+.kvg__read { margin: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 1px 0 3px 10px; border-left: 1px solid rgba(255,255,255,.1); min-width: 52px; }
+.kvg__read div { display: grid; gap: 2px; }
+.kvg__read dt { font: 600 7.5px/1 var(--sans, sans-serif); letter-spacing: .18em; text-transform: uppercase; color: var(--muted, #a69bb8); white-space: nowrap; }
+.kvg__read dt span { letter-spacing: .1em; opacity: .85; }
+.kvg__read dd { margin: 0; font: 500 12px/1.15 var(--mono, monospace); font-variant-numeric: tabular-nums; color: var(--ink, #f4efff); white-space: nowrap; }
+.kvg__read div:last-child dd { font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted, #a69bb8); }
+.kvg[data-state="speaking"] .kvg__read div:last-child dd, .kvg[data-state="listening"] .kvg__read div:last-child dd { color: #c35eae; }
+.kvg__ctl { display: flex; gap: 8px; }
+.kvg__ctl button { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 14px; border-radius: 999px; cursor: pointer;
+  font: 500 14px/1 var(--sans, sans-serif); color: var(--ink, #f4efff); border: 1px solid var(--line-strong, #4a3c5e); background: rgba(255,255,255,.03); transition: background .2s, border-color .2s; }
+.kvg__ctl button svg { width: 16px; height: 16px; }
+.kvg__ctl button[disabled] { opacity: .45; cursor: default; }
+.kvg__go { border: 0 !important; background: linear-gradient(90deg, #a88bff 0%, #c35eae 55%, #fb0001 100%) !important; color: #fff !important; }
+.kvg__go.is-end { background: #fb0001 !important; }
+.kvg__mute[aria-pressed="true"] { border-color: #fb0001; color: #ffd2c9; }
+@media (max-width: 420px) { .kvg { right: max(10px, env(safe-area-inset-right, 0px)); bottom: calc(10px + env(safe-area-inset-bottom, 0px)); } .kvg__btn { width: 48px; height: 48px; } .kvg__panel { padding: 14px; } .kvg__efis { height: 96px; } .kvg__meter { height: 80px; } }
+@media (prefers-reduced-motion: reduce) { .kvg__arc, .kvg__btn, .kvg__efis, .kvg__ctl button { animation: none !important; transition: none !important; } .kvg__btn:hover { transform: none; } }
+
+
 
 .tim-logo-gallery{margin-top:28px}
 .tim-logo-featured{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
