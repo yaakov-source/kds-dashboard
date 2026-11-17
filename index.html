@@ -87,10 +87,10 @@
 
   <header class="bar">
     <div class="bar__in">
-      <a class="lockup" href="#top" data-scroll aria-label="Hai Creative and KDS Law, KPI dashboard, back to top">
+      <a class="lockup" href="#top" data-scroll aria-label="Hai Creative and KDS Law, back to top">
         <span class="wordmark" role="img" aria-label="Hai Creative"></span>
         <span class="lockup__rule" aria-hidden="true"></span>
-        <span class="lockup__client lockup__client--full"><span class="kdslogo" role="img" aria-label="Keith D. Silverstein &amp; Associates, P.C., The Injury Attorneys"></span><small>KPI dashboard</small></span>
+        <span class="lockup__client lockup__client--full"><span class="kdslogo" role="img" aria-label="Keith D. Silverstein &amp; Associates, P.C., The Injury Attorneys"></span></span>
       </a>
       <nav aria-label="Sections">
         <a href="#kpis" data-scroll>Scorecard</a>
@@ -101,18 +101,10 @@
         <a href="#content" data-scroll>Content</a>
         <a href="#ai" data-scroll>AI search</a>
       </nav>
-      <a class="pill pill--red" href="#notes" data-scroll>Data notes</a>
     </div>
-    <div class="filter" id="filter" role="region" aria-label="Period filter">
+    <div class="filter filter--dd" id="filter" role="region" aria-label="Period">
       <div class="filter__in">
-        <span class="label filter__lab" id="periodLab">Period</span>
-        <div class="seg" role="group" aria-labelledby="periodLab" id="periodSeg"></div>
-        <button class="seg__more" type="button" id="rangeToggle" aria-expanded="false" aria-controls="rangeBox">Range</button>
-        <div class="range" id="rangeBox">
-          <label><span class="label">From</span><select id="rangeFrom" aria-label="From month"></select></label>
-          <label><span class="label">To</span><select id="rangeTo" aria-label="To month"></select></label>
-        </div>
-        <p class="filter__now" aria-live="polite"><span id="periodNow">Nov 2025 &ndash; Oct 2026</span></p>
+        <label class="filter__dd"><span class="label">Period</span><select id="periodSel" aria-label="Period"></select></label>
       </div>
     </div>
   </header>
@@ -125,11 +117,12 @@
             <p class="label hero__eyebrow">KDS Law &middot; Performance</p>
             <h1 id="hero-title">KDS Law, in numbers.</h1>
             <h2 class="hero__period"><span class="grad" id="heroPeriod">Nov 2025 &ndash; Oct 2026</span></h2>
-            <p class="hero__meta"><span>Data through Oct 31, 2026</span><span class="hero__by">Prepared by <i class="wordmark wordmark--sm" role="img" aria-label="Hai Creative"></i></span><span id="heroPartial">12 full months</span></p>
+            <h3 class="hero__lede">Paid search, organic, local and website results for KDS Law, side by side and month by month.</h3>
+            <p class="hero__meta"><span>Data through Oct 31, 2026</span><span class="hero__by">Prepared by <i class="wordmark wordmark--sm" role="img" aria-label="Hai Creative"></i></span></p>
           </div>
           <figure class="hero__flow" id="heroFlow">
             <div class="flow" id="flowHost" role="img" aria-label="Paid, organic search and local profile figures for the selected period"></div>
-            <figcaption class="flow__cap"><span class="label">Spend &rarr; clicks &rarr; outcomes</span><span class="flow__note">Three separate lanes from three platforms; never added together. Follows the period filter.</span></figcaption>
+            <figcaption class="flow__cap"><span class="label">Spend &rarr; clicks &rarr; outcomes</span></figcaption>
           </figure>
           <button class="motion" type="button" id="heroMotion" aria-pressed="false" hidden>
             <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3.5" y="3" width="3" height="10" rx="1" /><rect x="9.5" y="3" width="3" height="10" rx="1" /></svg>
@@ -139,23 +132,11 @@
       </div>
     </section>
 
-    <section class="section section--strip" id="sources" aria-labelledby="sources-title">
-      <div class="wrap">
-        <div class="strip">
-          <h2 id="sources-title" class="strip__h">Before you read</h2>
-          <ul class="strip__marks" id="sourceMarks" aria-label="Platforms in this dashboard"></ul>
-          <p class="strip__key"><i class="sw sw--na" aria-hidden="true"></i>Hatched means not read or unavailable, never zero.</p>
-          <details class="acc strip__acc" data-acc="sources"><summary><span>Where each number comes from</span><i class="acc__ic" aria-hidden="true"></i></summary><div class="acc__in"><ul class="sources" id="sourceList"></ul></div></details>
-          <details class="acc strip__acc" data-acc="rules"><summary><span>Counting rules</span><i class="acc__ic" aria-hidden="true"></i></summary><div class="acc__in"><ol class="rules-list" id="ruleList"></ol></div></details>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="kpis" aria-labelledby="kpis-title">
       <div class="wrap">
         <div class="head">
           <div><p class="label">Scorecard</p><h2 id="kpis-title">Paid, search, local, <span class="accent">content.</span></h2></div>
-          <p>Every tile follows the period filter. Each figure is the platform&rsquo;s own count; tiles from different platforms are never added together.</p>
+          <p>Each figure is the platform&rsquo;s own count.</p>
         </div>
         <div class="kpis" id="kpiGrid"></div>
       </div>
@@ -165,7 +146,7 @@
       <div class="wrap">
         <div class="head">
           <div><p class="label">Paid search &middot; Google Ads</p><h2 id="paid-title">Two phases, <span class="accent">side by side.</span></h2></div>
-          <p>Cost covers all campaign types, including Display. Conversions are Google Ads&rsquo; own count, not leads.</p>
+          <p>Cost covers all campaign types, including Display.</p>
         </div>
         <div class="charts" id="paidCharts"></div>
       </div>
@@ -185,9 +166,19 @@
       <div class="wrap">
         <div class="head">
           <div><p class="label">Local &middot; Business Profile</p><h2 id="local-title">Profile views <span class="accent">and actions.</span></h2></div>
-          <p>Business Profile figures exist for June to October 2026 only. Earlier months are hatched as unavailable.</p>
+          <p>Search and Maps views and the actions people took on the Business Profile.</p>
         </div>
         <div class="charts" id="localCharts"></div>
+      </div>
+    </section>
+
+    <section class="section" id="meetings" aria-labelledby="meetings-title">
+      <div class="wrap">
+        <div class="head">
+          <div><p class="label">HC TIME SPENT</p><h2 id="meetings-title">Hours spent <span class="accent">on KDS.</span></h2></div>
+          <p>KDS meetings, Google Partner Review and team work time, month by month.</p>
+        </div>
+        <div class="charts" id="meetCharts"></div>
       </div>
     </section>
 
@@ -195,7 +186,6 @@
       <div class="wrap">
         <div class="head">
           <div><p class="label">Website &middot; GA4</p><h2 id="website-title">Site traffic, <span class="accent">read with care.</span></h2></div>
-          <p>January 2026 looks like a tracking gap, and key events were only tracked from May 2026.</p>
         </div>
         <div class="charts" id="webCharts"></div>
       </div>
@@ -215,7 +205,7 @@
       <div class="wrap">
         <div class="head">
           <div><p class="label">AI search visibility</p><h2 id="ai-title">Seen in <span class="accent">AI answers.</span></h2></div>
-          <p>Owner-entered figures, each with its source, window and read date. Blank tiles are awaiting entry, not zero.</p>
+          <p>How KDS shows up in AI answers, platform by platform, with each figure&rsquo;s window and read date.</p>
         </div>
         <div class="charts" id="aiCharts"></div>
       </div>
@@ -223,23 +213,22 @@
 
     <section class="section" id="notes" aria-labelledby="notes-title">
       <div class="wrap">
-        <div class="head">
-          <div><p class="label">Data notes</p><h2 id="notes-title">How to read <span class="accent">the figures.</span></h2></div>
-          <p>Definitions and caveats from the Nov 4&ndash;5, 2026 platform reads. Aggregates only; no personal data is stored in this page.</p>
+        <div class="srcbox card">
+          <p class="label">Sources</p>
+          <h2 id="notes-title" class="srcbox__h">Where the numbers come from.</h2>
+          <ul class="srcbox__list" aria-label="Data sources"><li><img src="logos/googleads.svg" alt="" width="28" height="28"><span>Google Ads</span></li><li><img src="logos/googlesearchconsole.svg" alt="" width="28" height="28"><span>Google Search Console</span></li><li><img src="logos/googleanalytics.svg" alt="" width="28" height="28"><span>Google Analytics 4</span></li><li><img src="logos/googlemybusiness.svg" alt="" width="28" height="28"><span>Google Business Profile</span></li><li><img src="logos/semrush.svg" alt="" width="28" height="28"><span>Semrush</span></li><li><img src="logos/openai.svg" alt="" width="28" height="28"><span>OpenAI</span></li><li><img src="logos/chatgpt.svg" alt="" width="28" height="28"><span>ChatGPT</span></li><li><img src="logos/gemini.svg" alt="" width="28" height="28"><span>Gemini</span></li><li><img src="logos/claude.svg" alt="" width="28" height="28"><span>Claude</span></li><li><img src="logos/perplexity.svg" alt="" width="28" height="28"><span>Perplexity</span></li><li><img src="logos/wordpress.svg" alt="" width="28" height="28"><span>WordPress site</span></li></ul>
         </div>
-        <div class="notes" id="notesGrid"></div>
       </div>
     </section>
   </main>
 
-  <footer class="foot">
+  <footer class="foot foot--hai">
     <div class="wrap">
-      <span>Prepared by Hai Creative for KDS Law &middot; Nov 12, 2026</span>
-      <span>Data: Google Ads, Google Search Console, Google Analytics 4, Google Business Profile, site sitemap. Nov 2025 &ndash; Oct 2026.</span>
-      <span class="foot__note">Brand marks from Simple Icons (CC0) are used to identify each data source. DM Sans under the SIL Open Font License.</span>
+      <i class="wordmark foot__logo" role="img" aria-label="Hai Creative"></i>
+      <address>3916 E 82nd St, Indianapolis, IN 46240</address>
     </div>
   </footer>
-  <script src="data.enc.js?v=mwk3v9a5"></script>
-  <script src="gate.js?v=mwk3v9a5"></script>
+  <script src="data.enc.js?v=mwkv087x"></script>
+  <script src="gate.js?v=mwkv087x"></script>
 </body>
 </html>
