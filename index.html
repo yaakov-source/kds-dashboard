@@ -120,14 +120,7 @@
             <h3 class="hero__lede">Paid search, organic, local and website results for KDS Law, side by side and month by month.</h3>
             <p class="hero__meta"><span>Data through Oct 31, 2026</span><span class="hero__by">Prepared by <i class="wordmark wordmark--sm" role="img" aria-label="Hai Creative"></i></span></p>
           </div>
-          <figure class="hero__flow" id="heroFlow">
-            <div class="flow" id="flowHost" role="img" aria-label="Paid, organic search and local profile figures for the selected period"></div>
-            <figcaption class="flow__cap"><span class="label">Spend &rarr; clicks &rarr; outcomes</span></figcaption>
-          </figure>
-          <button class="motion" type="button" id="heroMotion" aria-pressed="false" hidden>
-            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3.5" y="3" width="3" height="10" rx="1" /><rect x="9.5" y="3" width="3" height="10" rx="1" /></svg>
-            <span>Pause motion</span>
-          </button>
+          <!-- 2026-11-17 (Jacob): old Spend -> clicks -> outcomes flow moved to #flow below the Scorecard; the work-category flow (#workFlow) is mounted here by overrides.js -->
         </div>
       </div>
     </section>
@@ -139,6 +132,25 @@
           <p>Each figure is the platform&rsquo;s own count.</p>
         </div>
         <div class="kpis" id="kpiGrid"></div>
+      </div>
+    </section>
+
+    <!-- 2026-11-17 (Jacob): the original hero flow, moved down to its own section after the Scorecard. Same renderer (app.js renderFlow into #flowHost). -->
+    <section class="section kds-oldflow" id="flow" aria-labelledby="flow-title">
+      <div class="wrap">
+        <div class="head">
+          <div><p class="label">Spend &rarr; clicks &rarr; outcomes</p><h2 id="flow-title">Spend &rarr; clicks &rarr; <span class="accent">outcomes.</span></h2></div>
+          <p>Paid, organic search and local profile figures for the selected period.</p>
+        </div>
+        <div class="kds-oldflow__card glass hai-glass">
+        <figure class="hero__flow" id="heroFlow">
+          <div class="flow" id="flowHost" role="img" aria-label="Paid, organic search and local profile figures for the selected period"></div>
+        </figure>
+        <button class="motion" type="button" id="heroMotion" aria-pressed="false" hidden>
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3.5" y="3" width="3" height="10" rx="1" /><rect x="9.5" y="3" width="3" height="10" rx="1" /></svg>
+          <span>Pause motion</span>
+        </button>
+        </div>
       </div>
     </section>
 
@@ -228,7 +240,7 @@
       <address>3916 E 82nd St, Indianapolis, IN 46240</address>
     </div>
   </footer>
-  <script src="data.enc.js?v=mwkvwj6o"></script>
-  <script src="gate.js?v=mwkvwj6o"></script>
+  <script src="data.enc.js?v=mwkw83ri"></script>
+  <script src="gate.js?v=mwkw83ri"></script>
 </body>
 </html>
