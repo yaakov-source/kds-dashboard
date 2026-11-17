@@ -1033,3 +1033,45 @@ html.kds-doc-hidden .kds-wft__p { animation-play-state: paused !important; }
 
 .kds-oldflow__card { position: relative; isolation: isolate; overflow: hidden; border-radius: clamp(22px, 2vw, 32px); }
 .kds-oldflow__card .hero__flow { padding: clamp(18px, 2.4vw, 32px) clamp(14px, 3vw, 44px) clamp(68px, 5vw, 76px) !important; }
+
+
+.tim-logo-gallery{margin-top:28px}
+.tim-logo-featured{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
+.tim-logo-tile{margin:0;min-width:0;overflow:hidden;border:1px solid var(--line,#352b43);border-radius:18px;background:var(--surface,#141119)}
+.tim-logo-art{position:relative;height:190px;padding:24px;background:radial-gradient(ellipse at top,#a88bff0e,transparent 80%)}
+.tim-logo-art img{position:absolute;inset:0;margin:auto;display:block;max-width:calc(100% - 32px);max-height:calc(100% - 32px);width:calc(100% - 32px);height:calc(100% - 32px);object-fit:contain}
+.tim-logo-tile figcaption{padding:15px 18px;border-top:1px solid var(--line,#352b43);display:grid;gap:5px}
+.tim-logo-tile figcaption b{font:500 11px/1.5 var(--mono,monospace);letter-spacing:.09em;text-transform:uppercase;color:var(--ink,#f4efff);overflow-wrap:anywhere}
+.tim-logo-tile figcaption span{font:13px/1.5 var(--sans,sans-serif);color:var(--muted,#b5a9c4)}
+.tim-logo-details{margin-top:18px;border-block:1px solid var(--line,#352b43)}
+.tim-logo-toggle{display:flex;align-items:center;text-align:left;width:100%;border:0;background:transparent;gap:12px;min-height:58px;padding:14px 4px;cursor:pointer;font:500 14px/1.5 var(--sans,sans-serif);color:var(--ink,#f4efff)}
+.tim-logo-toggle::-webkit-details-marker{display:none}
+.tim-logo-toggle:hover{color:var(--purple,#b58cff)}
+.tim-logo-toggle:focus-visible{outline:2px solid var(--purple,#b58cff);outline-offset:4px;border-radius:6px}
+.tim-logo-count{color:var(--muted,#b5a9c4);font:11px var(--mono,monospace)}
+.tim-logo-glyph{position:relative;margin-left:auto;flex:0 0 32px;height:32px;border:1px solid var(--line,#352b43);border-radius:50%}
+.tim-logo-glyph:before,.tim-logo-glyph:after{content:'';position:absolute;top:15px;left:9px;width:12px;height:1px;background:currentColor}
+.tim-logo-glyph:after{transform:rotate(90deg)}
+.tim-logo-toggle[aria-expanded="true"] .tim-logo-glyph:after{transform:rotate(0)}
+.tim-logo-panel[hidden]{display:none!important}
+.tim-logo-group{padding:6px 0 24px}
+.tim-logo-group h3{font:500 12px/1.5 var(--mono,monospace);text-transform:uppercase;letter-spacing:.1em;color:var(--muted,#b5a9c4);margin:8px 0 14px}
+.tim-logo-archive{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.tim-logo-archive .tim-logo-art{height:145px;padding:16px}
+.tim-logo-archive .tim-logo-tile figcaption{padding:12px}
+.tim-logo-archive .tim-logo-tile figcaption b{font-size:10px;letter-spacing:.04em}
+.tim-logo-tile--sheet{grid-column:span 2}.tim-logo-archive .tim-logo-tile--sheet .tim-logo-art{height:220px}
+.tim-montage-host{position:relative;min-width:0;overflow:hidden!important}
+.tim-montage-host:after{pointer-events:none}
+.tim-montage{height:100%;min-height:340px;position:relative;isolation:isolate;overflow:hidden}
+.tim-montage-card{position:absolute!important;display:block;padding:0!important;margin:0;border:1px solid #f4efff77!important;border-radius:12px!important;overflow:hidden!important;box-shadow:0 16px 38px #0005;background:#fff;cursor:pointer;transform-origin:50% 25%;transition:translate .22s ease,box-shadow .22s ease;max-width:none!important}
+.tim-montage-card img{display:block;width:100%;height:auto;min-height:160px;object-fit:cover;object-position:top;pointer-events:none}
+.tim-montage-card--left{left:5%;top:105px;width:46%;transform:rotate(-5deg);z-index:3}
+.tim-montage-card--social{left:29%;top:22px;width:42%;transform:rotate(0);z-index:1;background:#152338}
+.tim-montage-card--right{left:49%;top:105px;width:46%;transform:rotate(5deg);z-index:2}
+.tim-montage-card:not(:disabled):hover{translate:0 -4px;box-shadow:0 20px 45px #0007}
+.tim-montage-card:focus-visible{outline:3px solid var(--purple,#b58cff);outline-offset:3px;z-index:5}
+.tim-montage-card:disabled{cursor:default}
+@media(max-width:900px){.tim-logo-featured{grid-template-columns:repeat(3,minmax(0,1fr))}.tim-logo-art{height:150px;padding:18px}.tim-logo-archive{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:520px){.tim-logo-featured{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tim-logo-featured>.tim-logo-tile:first-child{grid-column:1/-1}.tim-logo-featured>.tim-logo-tile:first-child .tim-logo-art{height:124px}.tim-logo-art{height:106px;padding:16px}.tim-logo-tile figcaption{padding:11px 12px}.tim-logo-tile figcaption b{font-size:10px;letter-spacing:.04em}.tim-logo-tile figcaption span{font-size:12px}.tim-logo-toggle{font-size:13px;gap:8px;min-height:64px}.tim-logo-toggle>span:first-child{max-width:240px}.tim-logo-archive{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tim-logo-archive .tim-logo-art{height:105px;padding:12px}.tim-montage-host{min-height:240px!important;max-height:240px!important}.tim-montage{min-height:240px}.tim-montage-card--left,.tim-montage-card--right{top:90px}.tim-montage-card--social{top:8px}}
+@media(prefers-reduced-motion:reduce){.tim-montage-card{transition:none}.tim-montage-card:not(:disabled):hover{translate:none}}
