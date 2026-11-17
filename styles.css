@@ -827,14 +827,18 @@ html:not(.kds-show-archived) .progress-coverage { display: none !important; }
 
 .progress-journey > li.kds-bp-card { position: relative; isolation: isolate; overflow: hidden; transition: border-color .3s, box-shadow .3s, transform .35s cubic-bezier(.2,.7,.2,1); }
 .progress-journey > li.kds-bp-card > :not(.kds-bp) { position: relative; z-index: 1; }
-.kds-bp { position: absolute; z-index: 0; right: -6%; bottom: -8%; width: 74%; height: auto; opacity: .16; pointer-events: none; transition: opacity .35s, filter .35s; }
-.kds-bp g { stroke-dasharray: 4 6; animation: kds-bp-flow 14s linear infinite; }
-@keyframes kds-bp-flow { to { stroke-dashoffset: -200; } }
+.kds-bp { position: absolute; z-index: 0; right: -6%; bottom: -8%; width: 74%; height: auto; opacity: .24; pointer-events: none; transition: opacity .35s, filter .35s; }
+.kds-bp__a > * { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.8s cubic-bezier(.4,0,.2,1); }
+.progress-journey > li.kds-bp-card.is-in .kds-bp__a > *, .progress-journey > li.kds-bp-card:not(.kds-rv) .kds-bp__a > * { stroke-dashoffset: 0; }
+.kds-bp__s > * { stroke-dasharray: .07 .93; stroke-dashoffset: 0; opacity: 0; transition: opacity .35s; filter: drop-shadow(0 0 3px #ff5fa0); animation: kds-bp-sig 3.6s linear infinite; animation-play-state: paused; }
+@keyframes kds-bp-sig { to { stroke-dashoffset: -1; } }
 .progress-journey > li.kds-bp-card:hover, .progress-journey > li.kds-bp-card:focus-within { border-color: rgba(181,140,255,.7); box-shadow: 0 0 0 1px rgba(255,45,61,.25), 0 0 34px rgba(167,123,255,.28); transform: translateY(-3px); }
-.progress-journey > li.kds-bp-card:hover .kds-bp, .progress-journey > li.kds-bp-card:focus-within .kds-bp { opacity: .55; filter: drop-shadow(0 0 6px rgba(181,140,255,.7)); }
+.progress-journey > li.kds-bp-card:hover .kds-bp, .progress-journey > li.kds-bp-card:focus-within .kds-bp, .progress-journey > li.kds-bp-card.kds-bp-on .kds-bp { opacity: .5; filter: drop-shadow(0 0 6px rgba(181,140,255,.7)); }
+.progress-journey > li.kds-bp-card:hover .kds-bp__s > *, .progress-journey > li.kds-bp-card:focus-within .kds-bp__s > *, .progress-journey > li.kds-bp-card.kds-bp-on .kds-bp__s > * { opacity: .9; }
+@media (hover: none) { .progress-journey > li.kds-bp-card.kds-bp-on { border-color: rgba(181,140,255,.7); box-shadow: 0 0 0 1px rgba(255,45,61,.25), 0 0 34px rgba(167,123,255,.28); } }
 .progress-journey > li.kds-rv { opacity: 0; transform: translateY(18px); }
 .progress-journey > li.kds-rv.is-in { opacity: 1; transform: none; transition: opacity .7s ease calc(var(--order, 0) * 90ms), transform .8s cubic-bezier(.2,.7,.2,1) calc(var(--order, 0) * 90ms), border-color .3s, box-shadow .3s; }
-@media (prefers-reduced-motion: reduce) { .kds-bp g { animation: none; } .progress-journey > li.kds-bp-card { transition: none; } .progress-journey > li.kds-bp-card:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .kds-bp__a > * { transition: none; stroke-dashoffset: 0 !important; } .kds-bp__s { display: none; } .progress-journey > li.kds-bp-card { transition: none; } .progress-journey > li.kds-bp-card:hover { transform: none; } }
 
 .kds-lib__toolbar, .kds-lib__result-line { display: none !important; }
 
@@ -861,13 +865,12 @@ html:not(.kds-show-archived) .kds-services__ledger { display: none !important; }
 
 .progress-journey > li.kds-bp-card.kds-rv.is-in:hover, .progress-journey > li.kds-bp-card.kds-rv.is-in:focus-within { transform: translateY(-3px); transition: opacity .7s ease, transform .35s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; }
 .progress-journey > li.kds-bp-card.kds-rv.is-in.is-settled { transition: opacity .7s ease, transform .35s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; }
-.kds-bp g { animation-play-state: paused; }
-.progress-journey > li.kds-bp-card.kds-bp-live .kds-bp g { animation-play-state: running; }
-html.kds-doc-hidden .progress-journey > li.kds-bp-card .kds-bp g { animation-play-state: paused; }
+.progress-journey > li.kds-bp-card.kds-bp-live .kds-bp__s > * { animation-play-state: running; }
+html.kds-doc-hidden .progress-journey > li.kds-bp-card .kds-bp__s > * { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
   .progress-journey > li.kds-bp-card:hover, .progress-journey > li.kds-bp-card:focus-within,
   .progress-journey > li.kds-bp-card.kds-rv.is-in:hover, .progress-journey > li.kds-bp-card.kds-rv.is-in:focus-within { transform: none; transition: none; }
-  .progress-journey > li.kds-bp-card .kds-bp g { animation: none; }
+  .progress-journey > li.kds-bp-card .kds-bp__s > * { animation: none; }
 }
 
 .kds-lib-dialog .kds-lib__close:focus, .kds-lib-dialog .kds-lib__close:focus-visible, .kds-lib-dialog .kds-lib__close.kds-focus-ring { outline: 3px solid var(--orange, #fb0001); outline-offset: 3px; }
@@ -1205,6 +1208,37 @@ body #nyc-boroughs .kds-nyc__body { animation: kds-nyc-in .32s cubic-bezier(.2,.
 @media (max-width: 480px) { body #nyc-boroughs .kds-nyc__lbl { font-size: 13.5px; letter-spacing: .06em; stroke-width: 4px; } body #nyc-boroughs .kds-nyc__chip { padding: 8px 12px; font-size: 10px; } }
 @media (prefers-reduced-motion: reduce) { body #nyc-boroughs .kds-nyc__body { animation: none; } body #nyc-boroughs .kds-nyc__boro .kds-nyc__shape, body #nyc-boroughs .kds-nyc__chip { transition: none; } }
 
+.kds-wft__l b { display: flex; align-items: center; gap: 7px; }
+.kds-wft__l.is-txt em { margin-top: 8px; }
+.kds-wft__nd { fill: #ff5fa0; opacity: 0; transform-box: fill-box; transform-origin: center; filter: drop-shadow(0 0 5px #ff2d3d); transition: opacity .5s 1.3s; }
+.kds-wft.is-in .kds-wft__nd { opacity: .95; }
+@keyframes kds-wft-ping { 0%, 6% { transform: scale(1); } 3% { transform: scale(2.1); } }
+@keyframes kds-wft-ping-out { 0%, 88%, 100% { transform: scale(1); } 94% { transform: scale(2.1); } }
+@keyframes kds-wft-glow { 0%, 12%, 100% { box-shadow: none; } 4% { box-shadow: 0 0 0 1px rgba(255,95,160,.55), 0 0 26px rgba(181,140,255,.45); } }
+@keyframes kds-wft-glow-out { 0%, 84%, 100% { box-shadow: none; } 94% { box-shadow: 0 0 0 1px rgba(255,95,160,.55), 0 0 26px rgba(255,45,61,.4); } }
+@media (max-width: 1099px) {
+  .kds-wft__p { stroke-dasharray: .2 .8; stroke-width: 3; filter: drop-shadow(0 0 5px #ff2d3d) drop-shadow(0 0 2px #fff); }
+  .kds-wft__w { stroke-width: 2; }
+  .kds-wft.is-pulse .kds-wft__nd { animation: kds-wft-ping 3.4s linear infinite; animation-delay: calc(var(--d) * -1); animation-play-state: paused; }
+  .kds-wft.is-pulse .kds-wft__nd.is-out { animation-name: kds-wft-ping-out; }
+  .kds-wft.is-pulse .kds-wft__t:not(.is-na) { animation: kds-wft-glow 3.4s linear infinite; animation-delay: calc(var(--d, 0s) * -1); animation-play-state: paused; }
+  .kds-wft.is-pulse .kds-wft__l { animation: kds-wft-glow-out 3.4s linear infinite; animation-delay: calc(var(--d, 0s) * -1); animation-play-state: paused; }
+  .kds-wft.is-pulse.is-live .kds-wft__nd, .kds-wft.is-pulse.is-live .kds-wft__t, .kds-wft.is-pulse.is-live .kds-wft__l { animation-play-state: running; }
+  html.kds-doc-hidden .kds-wft__nd, html.kds-doc-hidden .kds-wft__t, html.kds-doc-hidden .kds-wft__l { animation-play-state: paused !important; }
+}
+@media (min-width: 1100px) { .kds-wft__nd { display: none; } }
+@media (max-width: 600px) {
+  .kds-wft__t, .kds-wft__l { text-align: center; align-items: center; }
+  .kds-wft__t b, .kds-wft__l b { flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center; letter-spacing: .07em; overflow-wrap: normal; word-break: normal; hyphens: none; }
+  .kds-wft__lb { padding-top: 0; text-wrap: balance; }
+  .kds-wft__t i, .kds-wft__t small, .kds-wft__l em { text-align: center; }
+  .kds-wft__t i { white-space: normal; }
+  .kds-wft__l em { font-size: 11px; line-height: 1.35; text-wrap: balance; }
+  .kds-wft__nm { font-size: 13px; padding-inline: 6px; }
+}
+@media (prefers-reduced-motion: reduce) { .kds-wft__nd, .kds-wft__t, .kds-wft__l { animation: none !important; } }
+.chart__title .label:empty { display: none; }
+
 
 .tim-logo-gallery{margin-top:28px}
 .tim-logo-featured{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
@@ -1314,3 +1348,24 @@ body #nyc-boroughs .kds-nyc__body { animation: kds-nyc-in .32s cubic-bezier(.2,.
  .tim-montage--fan .tim-montage-card--back{left:51%;top:8px;transform:rotate(4deg)}
 }
 @media(prefers-reduced-motion:reduce){.tim-montage--fan .tim-montage-card{transition:none!important}.tim-montage--fan .tim-montage-card:hover{translate:none!important}}
+
+
+@media(max-width:600px){
+  .progress-journey > li.kds-bp-card > .kds-bp{
+    right:0;
+    bottom:0;
+    width:68%;
+    max-width:100%;
+    max-height:100%;
+  }
+  .kds-lib__card-button > .kds-lib__visual{
+    inline-size:100%;
+    min-inline-size:0;
+    max-inline-size:100%;
+    flex-shrink:0;
+  }
+  .kds-lib__visual > .kds-lib__peek{
+    box-sizing:border-box;
+    max-inline-size:calc(100% - 16px);
+  }
+}
