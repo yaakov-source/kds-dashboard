@@ -1330,6 +1330,13 @@ body #nyc-boroughs .kds-nyc__body { animation: kds-nyc-in .32s cubic-bezier(.2,.
 .progress-journey > li.kds-bp-card:hover::before { opacity: 1; }
 @media (hover: none) { .progress-journey > li.kds-bp-card::before { display: none; } }
 
+.kds-wft__hub.has-rim { border-color: transparent; }
+.kds-wft__edge { fill: none; stroke: #ff2d3d; stroke-width: 3.2; filter: drop-shadow(0 0 4px rgba(255,45,61,.6)); }
+.kds-wft__rim { fill: none; stroke: #ff2d3d; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; filter: drop-shadow(0 0 4px rgba(255,45,61,.55)); transition: stroke-dashoffset 1.8s .6s cubic-bezier(.4,0,.2,1); }
+.kds-wft.is-in .kds-wft__rim, .kds-wft.is-static .kds-wft__rim { stroke-dashoffset: 0; }
+.kds-wft.is-pulse .kds-wft__rimp { animation-duration: 6s; }
+@media (prefers-reduced-motion: reduce) { .kds-wft__rim { transition: none; stroke-dashoffset: 0; } }
+
 
 .tim-logo-gallery{margin-top:28px}
 .tim-logo-featured{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
