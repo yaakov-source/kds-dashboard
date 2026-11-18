@@ -1385,6 +1385,44 @@ body.has-kvg { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
 @media (prefers-reduced-motion: reduce) { .kvg__arc, .kvg__btn, .kvg__efis, .kvg__ctl button { animation: none !important; transition: none !important; } .kvg__btn:hover { transform: none; } }
 
 
+.work-mobile-nav { display: none !important; }
+.kmenu__btn { display: none; position: relative; flex: none; width: 44px; height: 44px; margin: 0; padding: 0; border: 1px solid rgba(244,239,255,.14); border-radius: 14px; cursor: pointer;
+  background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.02)); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: inset 0 1px 0 rgba(255,255,255,.14); }
+.kmenu__btn span { position: absolute; left: 12px; right: 12px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, #a88bff, #c35eae 55%, #fb0001); transition: transform .35s cubic-bezier(.2,.8,.2,1), opacity .2s, top .35s cubic-bezier(.2,.8,.2,1); }
+.kmenu__btn span:nth-child(1) { top: 14px; } .kmenu__btn span:nth-child(2) { top: 20.5px; } .kmenu__btn span:nth-child(3) { top: 27px; }
+.kmenu__btn.is-open span:nth-child(1) { top: 20.5px; transform: rotate(45deg); }
+.kmenu__btn.is-open span:nth-child(2) { opacity: 0; transform: scaleX(.2); }
+.kmenu__btn.is-open span:nth-child(3) { top: 20.5px; transform: rotate(-45deg); }
+.kmenu__btn:focus-visible, .kmenu a:focus-visible { outline: 3px solid #fb0001; outline-offset: 3px; }
+@media (max-width: 1180px) {
+  .kmenu__btn { display: block; }
+  .bar__in { display: flex !important; align-items: center; justify-content: flex-start !important; gap: 12px; }
+  .bar__in .lockup { min-width: 0; }
+}
+.kmenu__scrim { position: fixed; inset: 0; z-index: 260; background: rgba(6,5,10,.45); opacity: 0; transition: opacity .3s ease; }
+.kmenu__scrim.is-open { opacity: 1; }
+.kmenu { position: fixed; z-index: 261; top: calc(70px + env(safe-area-inset-top, 0px)); left: max(12px, env(safe-area-inset-left, 0px)); box-sizing: border-box; width: min(320px, calc(100vw - 24px));
+  max-height: calc(100dvh - 100px); overflow: auto; padding: 18px 12px 12px; border-radius: 22px; border: 1px solid rgba(168,139,255,.3);
+  background: linear-gradient(160deg, rgba(168,139,255,.16), rgba(195,94,174,.08) 45%, rgba(251,0,1,.06)), rgba(16,13,24,.62);
+  -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); box-shadow: 0 30px 80px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.16);
+  opacity: 0; transform: translateY(-10px) scale(.96); transform-origin: top left; transition: opacity .28s ease, transform .32s cubic-bezier(.2,.8,.2,1); }
+.kmenu.is-open { opacity: 1; transform: none; }
+.kmenu[hidden], .kmenu__scrim[hidden] { display: none; }
+.kmenu__eb { margin: 0 8px 10px; font: 500 10.5px/1.3 var(--mono, monospace); letter-spacing: .16em; text-transform: uppercase; color: var(--muted, #a69bb8); }
+.kmenu ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.kmenu li { opacity: 0; transform: translateX(-8px); transition: opacity .3s ease, transform .35s cubic-bezier(.2,.8,.2,1); transition-delay: calc(var(--i) * 35ms + 60ms); }
+.kmenu.is-open li { opacity: 1; transform: none; }
+.kmenu a { display: flex; align-items: baseline; gap: 12px; min-height: 44px; padding: 10px 10px; border-radius: 12px; color: var(--ink, #f4efff); text-decoration: none; }
+.kmenu a:hover, .kmenu a:focus-visible { background: rgba(255,255,255,.06); }
+.kmenu__n { font: 500 10.5px var(--mono, monospace); letter-spacing: .1em; color: #c35eae; }
+.kmenu__t { font: 500 15px/1.2 var(--sans, sans-serif); letter-spacing: .06em; text-transform: uppercase; }
+.kmenu a:hover .kmenu__t, .kmenu a:focus-visible .kmenu__t { background: linear-gradient(90deg, #a88bff, #c35eae 55%, #fb0001); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+@media (prefers-reduced-motion: reduce) { .kmenu, .kmenu li, .kmenu__scrim, .kmenu__btn span { transition: none !important; } }
+@media (max-width: 360px) { #filter .filter__dd > .label { display: none; } }
+
+@media (pointer: coarse) and (max-width: 1024px) { .kvg { bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important; } body.has-kvg { padding-bottom: calc(140px + env(safe-area-inset-bottom, 0px)); } }
+
+
 
 .tim-logo-gallery{margin-top:28px}
 .tim-logo-featured{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
